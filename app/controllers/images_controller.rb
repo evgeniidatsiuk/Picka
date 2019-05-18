@@ -25,6 +25,20 @@ class ImagesController < ApplicationController
   def edit
   end
 
+  def update
+   if @image.update(image_params)
+    redirect_to image_path(@image.id)
+    else render 'edit'
+   end
+  end
+
+  def destroy
+  if @image.present?
+    @image.destroy
+  end
+    redirect_to root_path
+   end
+
   private
 
   def find_image

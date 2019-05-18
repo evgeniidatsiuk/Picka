@@ -3,3 +3,10 @@
   <%= image_tag(photo.url, style: "width: 500px;") %>
 <% end %>
 <%= @image.description%>
+<% if @image.user == current_user %>
+
+<%= link_to "Edit", edit_image_path(@image.id) %>
+
+<%= link_to "Delete", image_path(@image.id), method: :delete %>
+
+<%end %>
