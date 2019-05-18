@@ -2,7 +2,9 @@ Email:
 <%= @user.email%>
 <% if current_user == @user %>
   <%= link_to "Setting", edit_user_registration_path %>
+  <%= render 'images/new'%>
 <%end%>
+
 
 Photos:
 <%= Image.where(user_id: @user.id).count %>

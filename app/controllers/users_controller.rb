@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :find_user, only: %i[show followers following]
   def show
-
+    @image = Image.new
   end
 
   def index
