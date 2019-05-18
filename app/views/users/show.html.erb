@@ -1,4 +1,17 @@
-Email: <%= @user.email%>
+Email:
+<%= @user.email%>
 <% if current_user == @user %>
-<%= link_to "Setting", edit_user_registration_path %>
+  <%= link_to "Setting", edit_user_registration_path %>
 <%end%>
+
+Photos:
+<%= Image.where(user_id: @user.id).count %>
+
+<%= render 'relationships/form' %>
+
+<br>
+        <%= link_to "followers", followers_user_path(@user) %>
+        <%=link_to "following", following_user_path(@user) %>
+        <br>
+
+<%= render @user.images%>
