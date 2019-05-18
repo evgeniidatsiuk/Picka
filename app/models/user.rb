@@ -27,4 +27,11 @@ class User < ApplicationRecord
    following.include?(other_user)
  end
 
+ def feed
+   r = Relationship.arel_table
+   t = Image.arel_table
+   sub_query = t[:user_id].in(r.where(r[:follower_id].eq(id)).project(r[:followed_id]))
+   Image.where(sub_query.or(t[:user_id].eq(id)))
+end
+
 end
