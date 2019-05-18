@@ -1,12 +1,19 @@
-
 <% @image.photos.each do |photo| %>
   <%= image_tag(photo.url, style: "width: 500px;") %>
 <% end %>
 <%= @image.description%>
 <% if @image.user == current_user %>
 
-<%= link_to "Edit", edit_image_path(@image.id) %>
+  <%= link_to "Edit", edit_image_path(@image.id) %>
 
-<%= link_to "Delete", image_path(@image.id), method: :delete %>
+  <%= link_to "Delete", image_path(@image.id), method: :delete %>
 
 <%end %>
+
+<%= @image.likes.count %>
+Like
+<% if @image.likes.find { |like| like.user_id == current_user.id} %>
+  <%= render 'likes/destroy'%>
+<% else %>
+  <%= render 'likes/create'%>
+<% end %>
