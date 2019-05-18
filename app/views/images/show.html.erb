@@ -1,2 +1,6 @@
-<h1>Images#show</h1>
-<p>Find me in app/views/images/show.html.erb</p>
+<% if false %>
+<% @image.photos.each do |photo| %>
+  <%= image_tag(photo.url, style: "width: 500px;") %>
+<% end %>
+<% end %>
+<%= @image.description%>

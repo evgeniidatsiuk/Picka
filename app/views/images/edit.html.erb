@@ -1,2 +1,4 @@
-<h1>Images#edit</h1>
-<p>Find me in app/views/images/edit.html.erb</p>
+<%= form_for @image, url: image_path(@image.id) do |f| %>
+<%= render 'images/form', f:f%>
+<%= f.submit "Оновити" %>
+<% end %>

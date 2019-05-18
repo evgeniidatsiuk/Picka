@@ -1,0 +1,6 @@
+<%if user_signed_in?%>
+<%= link_to "Add", new_image_path %>
+<%= link_to "Log", destroy_user_session_path%>
+<% else %>
+<%= link_to "Reg", new_user_registration_path%>
+<% end %>
