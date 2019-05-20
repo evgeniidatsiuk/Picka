@@ -1,3 +1,4 @@
-Email: <%= user.email%><br>
+Email: <%= user.nickname%><br>
+<%= image_tag user.avatar.url, style:"width:100px;"%>
 <%= link_to "View profile", user_path(user.id) %>
 <hr>
