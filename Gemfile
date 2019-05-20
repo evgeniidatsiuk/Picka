@@ -40,6 +40,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 #uploads photos
 gem 'carrierwave', '~> 1.0'
+#add responsible desing
+gem 'bootstrap'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

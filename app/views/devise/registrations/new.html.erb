@@ -1,29 +1,47 @@
-<h2>Sign up</h2>
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "login100-form validate-form"}) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <span class="login100-form-title p-b-43">
+            Sign up
+          </span>
+          
+          <div class="field wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100" %>
+            <span class="focus-input100"></span>
+            <span class="label-input100">Email</span>
+          </div>
+					
+					<div class="field wrap-input100 validate-input" data-validate="Password is required">
+            <%= f.password_field :password, autocomplete: "new-password", class:"input100" %>
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+					<div class="field wrap-input100 validate-input" data-validate="Password confirmation is required">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input100" %>
+            <span class="focus-input100"></span>
+						<span class="label-input100">Password confirmation</span>
+          </div>
+			
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+					<div class="actions container-login100-form-btn">
+            <%= f.submit "Sign up", class:"login100-form-btn" %>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+            <%= render "devise/shared/links" %>
+					</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+				<%end%>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+        <div class="login100-more" style="background-image: url(/assets/annie-spratt-197099-unsplash.jpg);">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
