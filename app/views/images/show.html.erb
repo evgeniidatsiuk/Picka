@@ -17,3 +17,18 @@ Like
 <% else %>
   <%= render 'likes/create'%>
 <% end %>
+
+<% if user_signed_in? %>
+
+<%= render 'comments/form'%>
+
+<% else %>
+<%= link_to "Reg", new_user_registration_path%>
+або
+<%= link_to "Log", new_user_session_path%>
+<% end %>
+<ul class="content-list content-list_comments">
+  <% @comments.each do |comment| %>
+    <%=render 'comments/comment', comment:comment %>
+  <%end%>
+</ul>

@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
 
   def index
   @images = Image.all
+  @comments = Comment.all
   end
 
   def new
@@ -20,6 +21,7 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @comments=Comment.where(image_id: @image.id).order(created_at: :desc)
   end
 
   def edit
