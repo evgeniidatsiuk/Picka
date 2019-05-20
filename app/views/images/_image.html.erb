@@ -1,30 +1,30 @@
+<%= link_to image_path(image.id) do %>
 <% image.photos.each do |photo| %>
   <%= image_tag(photo.url, style: "width: 500px;") %>
 <% end %>
-<%= image.description%>
-<% if user_signed_in? && image.user.id == current_user.id %>
-<%= link_to "Edit", edit_image_path(image.id)%>
-<%= link_to "Destroy", image_path(image.id), method: :delete%>
 <% end %>
-<%= image.likes.count %>
-Like
+<br>
+<%= image.description%>
+<br>
+<% if user_signed_in? && image.user.id == current_user.id %>
+  <%= link_to "Edit", edit_image_path(image.id)%><br>
+  <%= link_to "Destroy", image_path(image.id), method: :delete%><br>
+<% end %>
+Likes:<%= image.likes.count %>
+
 <% if image.likes.find { |like| like.user_id == current_user.id} %>
-<%= form_with url: image_like_path(image, image.likes.find { |like| like.user_id == current_user.id}), method: :delete, local: true do |form| %>
+  <%= form_with url: image_like_path(image, image.likes.find { |like| like.user_id == current_user.id}), method: :delete, local: true do |form| %>
   <button style="border: none; background: none" type="submit" value="submit">
-    <%= image_tag("dislike.png", size: "40") %>
+  <%= image_tag("dislike.png", size: "40") %>
   </button>
 <%end%>
-
 <% else %>
 <%= form_with url: image_likes_path(image), local: true do |form| %>
   <button style="border: none; background: none" type="submit" value="submit">
-      <%= image_tag("like.png", size: "40") %>
-      </button>
-
-
+<%= image_tag("like.png", size: "40") %>
 <% end %>
-
+</button>
 <% end %>
-
-  Comments:
-  <%= image.comments.count%>
+Comments:
+<%= image.comments.count%>
+<hr>

@@ -1,12 +1,14 @@
 <% @image.photos.each do |photo| %>
   <%= image_tag(photo.url, style: "width: 500px;") %>
 <% end %>
+<br>
 <%= @image.description%>
-<% if @image.user == current_user %>
+<br>
+<% if @image.user.id == current_user.id %>
 
-  <%= link_to "Edit", edit_image_path(@image.id) %>
+  <%= link_to "Edit", edit_image_path(@image.id) %><br>
 
-  <%= link_to "Delete", image_path(@image.id), method: :delete %>
+  <%= link_to "Delete", image_path(@image.id), method: :delete %><br>
 
 <%end %>
 
@@ -17,16 +19,17 @@ Like
 <% else %>
   <%= render 'likes/create'%>
 <% end %>
-
+<br>
 <% if user_signed_in? %>
 
-<%= render 'comments/form'%>
+  <%= render 'comments/form'%>
 
 <% else %>
-<%= link_to "Reg", new_user_registration_path%>
-або
-<%= link_to "Log", new_user_session_path%>
+  <%= link_to "Reg", new_user_registration_path%><br>
+  або
+  <%= link_to "Log", new_user_session_path%>
 <% end %>
+<br>
 <ul class="content-list content-list_comments">
   <% @comments.each do |comment| %>
     <%=render 'comments/comment', comment:comment %>
