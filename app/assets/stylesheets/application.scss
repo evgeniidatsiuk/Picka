@@ -15,3 +15,11 @@
  */
 @import 'bootstrap';
 @import 'devise';
+
+.grid-item{
+    display: inline;
+}
+
+.not-inline{
+    display: block;
+}
