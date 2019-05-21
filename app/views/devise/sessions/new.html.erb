@@ -1,20 +1,20 @@
-<body style="background-color: #666666;">
+<body>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login100-form validate-form"}) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login100-form"}) do |f| %>
           <span class="login100-form-title p-b-43">
             Login to continue
           </span>
           
-          <div class="field wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+          <div class="field wrap-input100">
           <%= f.text_field :login, autofocus: true, autocomplete: "login", class:"input100" %>
             <span class="focus-input100"></span>
             <span class="label-input100">Email or login</span>
           </div>
 					
-					<div class="field wrap-input100 validate-input" data-validate="Password is required">
+					<div class="field wrap-input100">
             <%= f.password_field :password, autocomplete: "current-password", class:"input100" %>
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>

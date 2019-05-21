@@ -1,37 +1,43 @@
-<% @image.photos.each do |photo| %>
-  <%= image_tag(photo.url, style: "width: 500px;") %>
-<% end %>
-<br>
-<%= @image.description%>
-<br>
-<% if  user_signed_in? && @image.user.id == current_user.id %>
+<div class="row">
+  <div class="col-md-3 col-lg-4"></div>
+  <div class="col-sm-12 col-md-6 col-lg-4 center">
+    <% @image.photos.each do |photo| %>
+      <%= image_tag(photo.url, style: "width: 700px;", class:"img-fluid img-big") %>
+    <% end %>
+    <br>
+    <%= @image.description%>
+    <br>
+    <% if  user_signed_in? && @image.user.id == current_user.id %>
 
-  <%= link_to "Edit", edit_image_path(@image.id) %><br>
+      <%= link_to "Edit", edit_image_path(@image.id) %><br>
 
-  <%= link_to "Delete", image_path(@image.id), method: :delete %><br>
+      <%= link_to "Delete", image_path(@image.id), method: :delete %><br>
 
-<%end %>
+    <%end %>
 
-<%= @image.likes.count %>
-Like
-<% if user_signed_in? &&  @image.likes.find { |like| like.user_id == current_user.id} %>
-  <%= render 'likes/destroy'%>
-<% else %>
-  <%= render 'likes/create'%>
-<% end %>
-<br>
-<% if user_signed_in? %>
+    <%= @image.likes.count %>
+    Like
+    <% if user_signed_in? &&  @image.likes.find { |like| like.user_id == current_user.id} %>
+      <%= render 'likes/destroy'%>
+    <% else %>
+      <%= render 'likes/create'%>
+    <% end %>
+    <br>
+    <% if user_signed_in? %>
 
-  <%= render 'comments/form'%>
+      <%= render 'comments/form'%>
 
-<% else %>
-  <%= link_to "Reg", new_user_registration_path%><br>
-  або
-  <%= link_to "Log", new_user_session_path%>
-<% end %>
-<br>
-<ul class="content-list content-list_comments">
-  <% @comments.each do |comment| %>
-    <%=render 'comments/comment', comment:comment %>
-  <%end%>
-</ul>
+    <% else %>
+      <%= link_to "Reg", new_user_registration_path%><br>
+      або
+      <%= link_to "Log", new_user_session_path%>
+    <% end %>
+    <br>
+    <ul class="content-list content-list_comments">
+      <% @comments.each do |comment| %>
+        <%=render 'comments/comment', comment:comment %>
+      <%end%>
+    </ul>
+</div><!-- /.col -->
+<div class="col-md-3 col-lg-4"></div>
+</div><!-- /.row -->
