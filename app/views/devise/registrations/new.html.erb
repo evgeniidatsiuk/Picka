@@ -8,6 +8,12 @@
           <span class="login100-form-title p-b-43">
             Sign up
           </span>
+
+          <div class="field wrap-input100 validate-input" data-validate = "Nickname is required">
+          <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"input100" %>
+            <span class="focus-input100"></span>
+            <span class="label-input100">Nickname</span>
+          </div>
           
           <div class="field wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input100" %>
