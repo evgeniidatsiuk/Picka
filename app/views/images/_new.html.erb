@@ -1,0 +1,4 @@
+<%= form_for @image, url: images_path do |f| %>
+<%= render 'images/form', f:f%>
+<div class="center bg"><%= f.submit "Створити", class:"btn btn-dark" %></div>
+<% end %>

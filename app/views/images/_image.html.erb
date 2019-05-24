@@ -1,0 +1,7 @@
+<div class="gallery">
+<%= link_to image_path(image.id) do %>
+  <% image.photos.each do |photo| %>
+    <%= image_tag(photo.url, style: "width: 300px;", class:"img") %>
+  <% end %>
+  <% end %>
+</div>
