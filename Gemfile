@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #registration
 gem 'devise'
 #uploads photos
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 #add responsible desing
 gem 'bootstrap'
 gem 'jquery-rails'
